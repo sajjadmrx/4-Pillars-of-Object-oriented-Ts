@@ -4,7 +4,7 @@
 
 # TODOS
 - Abstraction ✅
-- Encapsulation ⏳
+- Encapsulation ✅
 - Inheritance ⏳
 - Polymorphism ⏳
 - Mini Project ⏳
