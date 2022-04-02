@@ -106,6 +106,7 @@ namespace Abstraction { // Car
 
         public abstract drive(): void;
         public abstract stop(): void;
+        public abstract updateSpeed(speed: number): void;
 
     }
 
@@ -123,7 +124,9 @@ namespace Abstraction { // Car
             console.log(`${this.name} 🚗 Stop`);
         }
 
-        public upgradeSpeed(speed: number): void {
+        public updateSpeed(speed: number): void {
+            if (speed > 300)
+                throw new Error("Speed cannot be more than 300km/h");
             this.setSpeed(speed)
         }
 
@@ -153,7 +156,7 @@ namespace Abstraction { // Car
     const carBmw1 = new BMW("BMW");
     const carBmw2 = new BMW("BMW");
     console.log(carBmw1.drive(), carBmw2.drive());
-    carBmw2.upgradeSpeed(600)
+    carBmw2.updateSpeed(600)
     console.log(carBmw2.drive())
     const carFerrari1 = new Ferrari("Ferrari");
     carFerrari1.updateSpeed(600)
