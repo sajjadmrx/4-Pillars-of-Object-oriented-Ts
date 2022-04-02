@@ -6,7 +6,7 @@
 - Abstraction ✅
 - Encapsulation ✅
 - Inheritance ⏳
-- Polymorphism ⏳
+- Polymorphism ✅
 - Mini Project ⏳
 
 
