@@ -85,3 +85,79 @@ namespace Abstraction { // React.Component
 
 
 }
+
+
+namespace Abstraction { // Car
+
+    abstract class Car {
+        private _speed: number = 0;
+        constructor(public name: string) { }
+
+
+
+
+        public get speed(): number {
+            return this._speed;
+        }
+
+        protected setSpeed(speed: number): void {
+            this._speed = speed;
+        }
+
+        public abstract drive(): void;
+        public abstract stop(): void;
+
+    }
+
+    class BMW extends Car {
+
+        constructor(name: string) {
+            super(name);
+            this.setSpeed(100);
+        }
+
+        public drive(): void {
+            console.log(`${this.name} 🚘 With ${this.speed}km/h`);
+        }
+        public stop(): void {
+            console.log(`${this.name} 🚗 Stop`);
+        }
+
+        public upgradeSpeed(speed: number): void {
+            this.setSpeed(speed)
+        }
+
+    }
+
+    class Ferrari extends Car {
+        constructor(name: string) {
+            super(name);
+            this.setSpeed(200);
+        }
+
+        public drive(): void {
+            console.log(`${this.name} 🚘 With ${this.speed}km/h`);
+        }
+        public stop(): void {
+            console.log(`${this.name} 🚗 Stoped`);
+        }
+
+        public updateSpeed(speed: number): void {
+            if (speed > 500) {
+                console.warn('[WARNING] OMG! You are driving too fast! 🙀')
+            }
+            this.setSpeed(speed)
+        }
+    }
+
+    const carBmw1 = new BMW("BMW");
+    const carBmw2 = new BMW("BMW");
+    console.log(carBmw1.drive(), carBmw2.drive());
+    carBmw2.upgradeSpeed(600)
+    console.log(carBmw2.drive())
+    const carFerrari1 = new Ferrari("Ferrari");
+    carFerrari1.updateSpeed(600)
+    console.log(carFerrari1.drive())
+    // const carFerrari2 = new Ferrari("Ferrari");
+    // console.log(carFerrari1.speed, carFerrari2.drive());
+}
